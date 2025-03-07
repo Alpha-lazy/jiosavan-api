@@ -2,12 +2,21 @@ import { AlbumController, ArtistController, SearchController, SongController } f
 import { PlaylistController } from '#modules/playlists/controllers'
 import { App } from './app'
 
-const app = new App([
+ 
+
+
+const app = new App(
+[
   new SearchController(),
   new SongController(),
   new AlbumController(),
   new ArtistController(),
   new PlaylistController()
-]).getApp()
+
+]
+
+
+).getApp()
+
 
 export default app

@@ -6,8 +6,10 @@ import { prettyJSON } from 'hono/pretty-json'
 import { Home } from './pages/home'
 import type { Routes } from '#common/types'
 import type { HTTPException } from 'hono/http-exception'
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 export class App {
+
   private app: OpenAPIHono
 
   constructor(routes: Routes[]) {
@@ -89,7 +91,11 @@ export class App {
     })
   }
 
+
   public getApp() {
+    injectSpeedInsights()
     return this.app
   }
+  
+  
 }
